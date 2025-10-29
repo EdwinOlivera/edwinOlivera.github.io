@@ -1,0 +1,602 @@
+/* ============================================
+   VARIABLES Y COLORES STEAMPUNK
+   ============================================ */
+:root {
+    --brass: #b8860b;
+    --copper: #cd7f32;
+    --bronze: #8b6914;
+    --dark-metal: #2c2416;
+    --aged-paper: #f4e8d0;
+    --rust: #a0522d;
+    --steam-white: rgba(255, 255, 255, 0.7);
+    --gear-shadow: rgba(0, 0, 0, 0.5);
+}
+
+/* ============================================
+   RESET Y BASE
+   ============================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    background: linear-gradient(135deg, #1a1410 0%, #2c2416 50%, #1a1410 100%);
+    color: var(--aged-paper);
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* ============================================
+   CONTENEDOR PRINCIPAL
+   ============================================ */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    position: relative;
+    z-index: 10;
+}
+
+/* ============================================
+   HEADER CON ENGRANAJES
+   ============================================ */
+.header {
+    text-align: center;
+    padding: 3rem 0;
+    position: relative;
+    border-bottom: 3px solid var(--brass);
+    margin-bottom: 3rem;
+}
+
+.header::before,
+.header::after {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--brass), var(--copper));
+    top: 50%;
+}
+
+.header::before {
+    left: 10%;
+}
+
+.header::after {
+    right: 10%;
+}
+
+h1 {
+    font-size: 3rem;
+    color: var(--brass);
+    text-shadow: 
+        2px 2px 4px var(--gear-shadow),
+        0 0 10px rgba(184, 134, 11, 0.5);
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+/* Efecto glitch sutil */
+.glitch {
+    position: relative;
+    display: inline-block;
+}
+
+.glitch:hover::before {
+    content: attr(data-text);
+    position: absolute;
+    left: 2px;
+    text-shadow: -2px 0 var(--rust);
+    top: 0;
+    color: var(--brass);
+    overflow: hidden;
+    clip: rect(0, 900px, 0, 0);
+    /* animation: glitch-effect 0.3s infinite; */
+}
+
+@keyframes glitch-effect {
+    0% { clip: rect(42px, 9999px, 44px, 0); }
+    50% { clip: rect(12px, 9999px, 59px, 0); }
+    100% { clip: rect(85px, 9999px, 140px, 0); }
+}
+
+.subtitle {
+    font-size: 1.3rem;
+    color: var(--copper);
+    font-style: italic;
+    letter-spacing: 1px;
+}
+
+/* ============================================
+   ENGRANAJES DECORATIVOS
+   ============================================ */
+.gear {
+    position: absolute;
+    border: 4px solid var(--brass);
+    border-radius: 50%;
+    animation: rotate 20s linear infinite;
+}
+
+.gear::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40%;
+    height: 40%;
+    background: var(--dark-metal);
+    border-radius: 50%;
+    border: 2px solid var(--copper);
+}
+
+.gear-1 {
+    width: 80px;
+    height: 80px;
+    top: -20px;
+    left: 5%;
+    background: conic-gradient(var(--bronze) 0deg 45deg, transparent 45deg 90deg, 
+                                var(--bronze) 90deg 135deg, transparent 135deg 180deg,
+                                var(--bronze) 180deg 225deg, transparent 225deg 270deg,
+                                var(--bronze) 270deg 315deg, transparent 315deg 360deg);
+}
+
+.gear-2 {
+    width: 120px;
+    height: 120px;
+    top: -30px;
+    right: 8%;
+    background: conic-gradient(var(--brass) 0deg 30deg, transparent 30deg 60deg, 
+                                var(--brass) 60deg 90deg, transparent 90deg 120deg,
+                                var(--brass) 120deg 150deg, transparent 150deg 180deg,
+                                var(--brass) 180deg 210deg, transparent 210deg 240deg,
+                                var(--brass) 240deg 270deg, transparent 270deg 300deg,
+                                var(--brass) 300deg 330deg, transparent 330deg 360deg);
+    animation-direction: reverse;
+}
+
+.gear-3 {
+    width: 60px;
+    height: 60px;
+    bottom: 20px;
+    left: 15%;
+    background: conic-gradient(var(--copper) 0deg 60deg, transparent 60deg 120deg, 
+                                var(--copper) 120deg 180deg, transparent 180deg 240deg,
+                                var(--copper) 240deg 300deg, transparent 300deg 360deg);
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* ============================================
+   PANEL PRINCIPAL CON MARCO DE LATÓN
+   ============================================ */
+.main-panel {
+    background: linear-gradient(135deg, rgba(139, 105, 20, 0.1) 0%, rgba(184, 134, 11, 0.05) 100%);
+    border-radius: 10px;
+    padding: 2rem;
+    position: relative;
+}
+
+.brass-frame {
+    border: 4px solid var(--brass);
+    border-radius: 8px;
+    padding: 2.5rem;
+    background: 
+        linear-gradient(135deg, transparent 24%, rgba(184, 134, 11, 0.05) 25%, rgba(184, 134, 11, 0.05) 26%, transparent 27%, transparent 74%, rgba(184, 134, 11, 0.05) 75%, rgba(184, 134, 11, 0.05) 76%, transparent 77%, transparent),
+        linear-gradient(45deg, transparent 24%, rgba(184, 134, 11, 0.05) 25%, rgba(184, 134, 11, 0.05) 26%, transparent 27%, transparent 74%, rgba(184, 134, 11, 0.05) 75%, rgba(184, 134, 11, 0.05) 76%, transparent 77%, transparent);
+    background-size: 50px 50px;
+    box-shadow: 
+        inset 0 0 20px rgba(0, 0, 0, 0.3),
+        0 5px 15px rgba(0, 0, 0, 0.5);
+    position: relative;
+}
+
+/* Remaches en las esquinas */
+.brass-frame::before,
+.brass-frame::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: radial-gradient(circle, var(--brass), var(--bronze));
+    border-radius: 50%;
+    border: 2px solid var(--dark-metal);
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.brass-frame::before {
+    top: -10px;
+    left: -10px;
+}
+
+.brass-frame::after {
+    top: -10px;
+    right: -10px;
+}
+
+/* ============================================
+   SECCIONES DE CONTENIDO
+   ============================================ */
+.content-section {
+    margin-bottom: 3rem;
+}
+
+.content-section:last-child {
+    margin-bottom: 0;
+}
+
+.section-title {
+    font-size: 2rem;
+    color: var(--brass);
+    text-align: center;
+    margin-bottom: 2rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+/* Remaches decorativos */
+.rivet {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    background: radial-gradient(circle, var(--copper), var(--bronze));
+    border-radius: 50%;
+    border: 2px solid var(--dark-metal);
+    box-shadow: 
+        inset 0 0 3px rgba(0, 0, 0, 0.8),
+        0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.info-display {
+    background: rgba(244, 232, 208, 0.05);
+    border: 2px solid var(--copper);
+    border-radius: 5px;
+    padding: 2rem;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.description {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+    color: var(--aged-paper);
+}
+
+.description:last-child {
+    margin-bottom: 0;
+}
+
+.highlight {
+    color: var(--brass);
+    font-weight: bold;
+    text-shadow: 0 0 5px rgba(184, 134, 11, 0.3);
+}
+
+/* ============================================
+   TARJETAS DE HABILIDADES
+   ============================================ */
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.skill-card {
+    background: linear-gradient(135deg, rgba(139, 105, 20, 0.2) 0%, rgba(44, 36, 22, 0.3) 100%);
+    border: 3px solid var(--brass);
+    border-radius: 10px;
+    padding: 2rem;
+    text-align: center;
+    position: relative;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.skill-card::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    border: 1px solid var(--copper);
+    border-radius: 5px;
+    opacity: 0.5;
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(184, 134, 11, 0.4);
+}
+
+.skill-icon {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 1.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 4px solid var(--brass);
+    position: relative;
+    box-shadow: 
+        0 0 20px rgba(184, 134, 11, 0.5),
+        inset 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.flutter-icon {
+    background: linear-gradient(135deg, #0468d7, #02569b);
+}
+
+.laravel-icon {
+    background: linear-gradient(135deg, #ff2d20, #c21807);
+}
+
+.icon-letter {
+    font-size: 3rem;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.skill-card h3 {
+    font-size: 1.5rem;
+    color: var(--brass);
+    margin-bottom: 1rem;
+}
+
+.skill-card p {
+    color: var(--aged-paper);
+    line-height: 1.6;
+}
+
+/* ============================================
+   PANEL DE CONTACTO
+   ============================================ */
+.contact-panel {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.contact-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, rgba(139, 105, 20, 0.3) 0%, rgba(44, 36, 22, 0.4) 100%);
+    border: 3px solid var(--brass);
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--aged-paper);
+    font-size: 1.1rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.contact-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(184, 134, 11, 0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.contact-link:hover::before {
+    left: 100%;
+}
+
+.contact-link:hover {
+    transform: scale(1.05);
+    box-shadow: 
+        0 0 20px rgba(184, 134, 11, 0.6),
+        inset 0 0 10px rgba(184, 134, 11, 0.2);
+}
+
+.link-ornament {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    border: 1px solid var(--copper);
+    border-radius: 5px;
+    opacity: 0.5;
+}
+
+.link-icon {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--brass);
+    text-shadow: 0 0 10px rgba(184, 134, 11, 0.5);
+    z-index: 1;
+}
+
+.link-text {
+    font-weight: bold;
+    z-index: 1;
+}
+
+/* Colores específicos para cada plataforma */
+.linkedin {
+    border-color: #0077b5;
+}
+
+.linkedin .link-icon {
+    color: #0077b5;
+}
+
+.platzi {
+    border-color: #98ca3f;
+}
+
+.platzi .link-icon {
+    color: #98ca3f;
+}
+
+.email {
+    border-color: var(--copper);
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.footer {
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 3rem;
+    border-top: 3px solid var(--brass);
+    position: relative;
+}
+
+.footer p {
+    color: var(--copper);
+    font-style: italic;
+}
+
+.pipe-decoration {
+    width: 100px;
+    height: 5px;
+    background: linear-gradient(90deg, transparent, var(--brass), transparent);
+    margin: 1rem auto;
+    position: relative;
+}
+
+.pipe-decoration::before,
+.pipe-decoration::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: var(--brass);
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.pipe-decoration::before {
+    left: -5px;
+}
+
+.pipe-decoration::after {
+    right: -5px;
+}
+
+/* ============================================
+   EFECTOS DE VAPOR DE FONDO
+   ============================================ */
+.steam-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.steam-bg::before,
+.steam-bg::after {
+    content: '';
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1), transparent);
+    border-radius: 50%;
+    animation: float 15s infinite ease-in-out;
+}
+
+.steam-bg::before {
+    top: 20%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.steam-bg::after {
+    top: 60%;
+    right: 15%;
+    animation-delay: 5s;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+        opacity: 0;
+    }
+    50% {
+        transform: translateY(-100px) scale(1.2);
+        opacity: 0.3;
+    }
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    .brass-frame {
+        padding: 1.5rem;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .gear-1, .gear-2, .gear-3 {
+        display: none;
+    }
+
+    .skills-container {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-panel {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 1rem;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .brass-frame {
+        padding: 1rem;
+    }
+
+    .info-display {
+        padding: 1rem;
+    }
+
+    .skill-card {
+        padding: 1.5rem;
+    }
+}
