@@ -198,6 +198,23 @@ h1 {
     position     : relative;
 }
 
+/* Asegurar padding 0 en dispositivos móviles */
+@media screen and (max-width: 768px) {
+    .main-panel {
+        padding: 0rem !important;
+    }
+
+    .brass-frame {
+        padding: 1rem 0rem !important;
+        width  : 100% !important;
+    }
+
+    .content-section {
+        padding: 0rem !important;
+        width  : 100% !important;
+    }
+}
+
 .brass-frame {
     border       : 4px solid var(--brass);
     border-radius: 8px;
@@ -862,6 +879,15 @@ h1 {
     .contact-panel {
         grid-template-columns: 1fr;
     }
+
+    /* Ocultar botón de toggle en pantallas pequeñas y ajustar header */
+    .toggle-btn {
+        display: none;
+    }
+
+    .section-header {
+        padding-right: 0;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1229,5 +1255,14 @@ h1 {
 
     .contact-link:active {
         transform: scale(0.95);
+    }
+
+    /* En dispositivos táctiles ocultar el botón de alternancia para mantener el UI limpio */
+    .toggle-btn {
+        display: none;
+    }
+
+    .section-header {
+        padding-right: 0;
     }
 }
